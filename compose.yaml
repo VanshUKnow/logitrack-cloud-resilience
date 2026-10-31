@@ -15,5 +15,14 @@ services:
         max-size: "10m"
         max-file: "3"
 
+  logitrack-frontend:
+    build: ./frontend
+    container_name: logitrack-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - logitrack-api
+    restart: unless-stopped
+
 volumes:
   logitrack_data:
